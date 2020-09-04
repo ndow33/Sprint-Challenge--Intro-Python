@@ -77,8 +77,12 @@ for c in cities:
 # TODO Get latitude and longitude values from the user
 lat1 = input('Enter lat1: ')
 lon1 = input('Enter lon1: ')
-lat2 = input('Enter lat2:')
+lat2 = input('Enter lat2: ')
 lon2 = input('Enter lon2: ')
+lat1 = float(lat1)
+lon1 = float(lon1)
+lat2 = float(lat2)
+lon2 = float(lon2)
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   '''self.lat1 = lat1
@@ -96,8 +100,8 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     lon_inrange = False
     
     # get city lat and lon
-    city_lat = city.lat
-    city_lon = city.lon
+    city_lat = float(city.lat)
+    city_lon = float(city.lon)
     # are lat and lon in range?
     if lat1 < lat2:
       if city_lat > lat1 and city_lat < lat2:
@@ -116,3 +120,8 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
       within.append(city)
 
   return within
+
+in_cities = cityreader_stretch(lat1, lon1, lat2, lon2, cities=cities)
+
+for city in in_cities:
+  print(city)
